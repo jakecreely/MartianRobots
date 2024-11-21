@@ -1,11 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Text;
+
 try
 {
-
-// Read the grid input
+    // Read and validate Grid input
     string? gridInput = Console.ReadLine();
-    if (gridInput == null)
+    if (String.IsNullOrEmpty(gridInput))
     {
         throw new ArgumentException("Grid input cannot be left empty");
     }
@@ -22,15 +23,65 @@ try
     // Create the grid
     Grid grid = new Grid(width, height);
     
-// Read robot one starting position
-// Create robot
-// Read instructions
-// Add robot and instructions to an array
-// Repeat until user stops
-// Run navigate on robot in sequential order
+    StringBuilder output = new StringBuilder();
+    RobotNavigator navigator = new RobotNavigator();
 
+    // Loops until user decides to stop adding robots
+    while (true)
+    {
+        // Read and validate starting position
+        string? positionInput = Console.ReadLine();
+        if (String.IsNullOrEmpty(positionInput))
+        {
+            // Exit from loop and start navigation
+            break;
+        }
+        
+        string[] seperatedPosition = positionInput.Split();
+
+        if (seperatedPosition.Length != 3)
+        {
+            throw new ArgumentException("Seperated position must be 2 numbers (X, Y) and an orientation (N, S, E, W)");
+        }
+        
+        int x = int.Parse(seperatedPosition[0]);
+        int y = int.Parse(seperatedPosition[1]);
+        char direction = char.Parse(seperatedPosition[2]);
+        Orientation orientation = direction switch
+        {
+            'N' => Orientation.North,
+            'S' => Orientation.South,
+            'E' => Orientation.East,
+            'W' => Orientation.West,
+            _ => throw new ArgumentException("Invalid direction. Must be N, S, E or W.")
+        };
+        Position position = new Position(x, y, orientation);
+        
+        Robot robot = new Robot(position);
+        
+        string? instructionInput = Console.ReadLine();
+        if (String.IsNullOrEmpty(instructionInput))
+        {
+            throw new ArgumentException("Instructions cannot be left empty");
+        }
+        
+        var result = navigator.Navigate(grid, robot, instructionInput);
+        
+        // Output
+        output.Append(result.finalPosition.ToString());
+        output.Append(result.isLost ? " LOST " : "");
+        output.AppendLine();
+
+        Console.WriteLine();
+    }
+    
+    Console.Write(output);
+}
+catch (ArgumentException ex)
+{
+    Console.WriteLine(ex.Message);
 }
 catch (Exception ex)
 {
-    Console.Write(ex.ToString());
-} 
+    Console.WriteLine($"Unexpected error occurred: {ex.Message}");
+}
