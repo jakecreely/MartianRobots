@@ -22,13 +22,14 @@ public class RobotNavigator
 
             if (grid.IsOutOfBounds(newPosition) && !isLost)
             {
-                if (!grid.HasAlreadyLostFromPosition(newPosition))
+                if (!grid.HasAlreadyLostFromPosition(currentPosition))
                 {
+                    // Lost at current position on the grid
+                    grid.AddLostPosition(currentPosition);  
+                    isLost = true;
                     currentPosition = newPosition;
                     robot.CurrentPosition = newPosition;
-                    isLost = true;
-                    grid.AddLostPosition(newPosition);  
-                };
+                }
             }
             else
             {
