@@ -46,5 +46,18 @@ public class Position
             _ => throw new ArgumentException("Invalid orientation")
         };
     }
+
+    public override String ToString()
+    {
+        char orientation = Orientation switch
+        {
+            Orientation.North => 'N',
+            Orientation.South => 'S',
+            Orientation.East => 'E',
+            Orientation.West => 'W',
+        };
+        
+        return "" + X + " " + Y + " " + orientation;
+    }
     
 }
