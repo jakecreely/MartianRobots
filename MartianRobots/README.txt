@@ -1,0 +1,1 @@
+Problems - robot may continue to update position after being lost
