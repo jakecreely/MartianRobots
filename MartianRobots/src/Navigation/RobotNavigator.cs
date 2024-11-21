@@ -28,6 +28,7 @@ public class RobotNavigator
             }
             else
             {
+                currentPosition = newPosition;
                 robot.CurrentPosition = newPosition;
             }
         }
