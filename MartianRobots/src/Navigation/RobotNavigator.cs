@@ -1,6 +1,6 @@
 public class RobotNavigator
 {
-    public void Navigate(Grid grid, Robot robot, string instructions)
+    public (Position finalPosition, bool isLost) Navigate(Grid grid, Robot robot, string instructions)
     {
         
         Position currentPosition = robot.CurrentPosition;
@@ -37,5 +37,7 @@ public class RobotNavigator
                 robot.CurrentPosition = newPosition;
             }
         }
+        
+        return (currentPosition, isLost);
     }
 }
