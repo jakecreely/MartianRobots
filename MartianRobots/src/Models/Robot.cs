@@ -1,19 +1,21 @@
 public class Robot : IRobot
 {
-    public Position CurrentPosition { get; private set; }
+    public Position CurrentPosition { get; set; }
 
     public Robot(Position startingPosition)
     {
         CurrentPosition = startingPosition;
     }
 
-    public void Turn(char instruction)
+    public Position Turn(char instruction)
     {
         CurrentPosition = CurrentPosition.Turn(instruction);
+        return CurrentPosition;
     }
 
-    public void MoveForward()
+    public Position MoveForward()
     {   
         CurrentPosition = CurrentPosition.MoveForward();
+        return CurrentPosition;
     }
 }
