@@ -2,5 +2,9 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4df3806f_002D6a9f_002D41fb_002D8697_002Dd7855e15caf8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestValidGridConstruction" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::E2A35AC6-2707-4421-A2A0-19730387DC34::net8.0::MartianRobots.tests.Models.GridTests&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::E2A35AC6-2707-4421-A2A0-19730387DC34::net8.0::MartianRobots.tests.Models.PositionTests.TestValidPositionConstruction&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::E2A35AC6-2707-4421-A2A0-19730387DC34::net8.0::MartianRobots.tests.Models.PositionTests.TestLeftTurn&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::E2A35AC6-2707-4421-A2A0-19730387DC34::net8.0::MartianRobots.tests.Models.PositionTests.TestRightTurn&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::E2A35AC6-2707-4421-A2A0-19730387DC34::net8.0::MartianRobots.tests.Models.PositionTests&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
