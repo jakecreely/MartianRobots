@@ -64,6 +64,11 @@ try
         {
             throw new ArgumentException("Instructions cannot be left empty");
         }
+
+        if (instructionInput.Length > 100)
+        {
+            throw new ArgumentException("Instructions cannot be longer than 100 characters");
+        }
         
         var result = navigator.Navigate(grid, robot, instructionInput);
         
