@@ -1,9 +1,23 @@
+using MartianRobots.Enums;
+
+namespace MartianRobots.Models;
+
+/// <summary>
+/// Class for storing a robots position, it stores the X, Y and Orientation as well as
+/// functionality for turning and moving forward
+/// </summary>
 public class Position
 {
     public int X { get; }
     public int Y { get; }
     public Orientation Orientation { get; }
 
+    /// <summary>
+    /// Constructor for a position, which requires X, Y and Orientation
+    /// </summary>
+    /// <param name="x">X position on the grid</param>
+    /// <param name="y">Y position on the grid</param>
+    /// <param name="orientation">Direction the robot is facing</param>
     public Position(int x, int y, Orientation orientation)
     {
         X = x;
@@ -11,6 +25,12 @@ public class Position
         Orientation = orientation;
     }
 
+    /// <summary>
+    /// Returns the updated position based on the passed instruction
+    /// </summary>
+    /// <param name="instruction">A char which should be L, R or F</param>
+    /// <returns>The updated position</returns>
+    /// <exception cref="ArgumentException">If the given instruction is not valid</exception>
     public Position Turn(char instruction)
     {
         return instruction switch
@@ -35,6 +55,11 @@ public class Position
         };
     }
 
+    /// <summary>
+    /// Returns the updated position based on the orientation the robot is currently facing
+    /// </summary>
+    /// <returns>The updated position</returns>
+    /// <exception cref="ArgumentException">Orientation is not a valid enum</exception>
     public Position MoveForward()
     {
         return Orientation switch
@@ -47,6 +72,10 @@ public class Position
         };
     }
 
+    /// <summary>
+    /// Returns the string in the format "X Y orientation"
+    /// </summary>
+    /// <returns>String</returns>
     public override String ToString()
     {
         char orientation = Orientation switch

@@ -1,5 +1,20 @@
+using MartianRobots.Models;
+
+namespace MartianRobots.Navigation;
+
+/// <summary>
+/// Navigates a given robot along a grid using a string of instructions
+/// </summary>
 public class RobotNavigator
 {
+    /// <summary>
+    /// Moves the passed robot along the passed grid based on the passed instructions
+    /// </summary>
+    /// <param name="grid">The grid to navigate around</param>
+    /// <param name="robot">The robot to navigate</param>
+    /// <param name="instructions">A string of instructions to process</param>
+    /// <returns>The position the robot ended in and whether it got lost or not</returns>
+    /// <exception cref="ArgumentException">Throws exception if an instruction is invalid</exception>
     public (Position finalPosition, bool isLost) Navigate(Grid grid, Robot robot, string instructions)
     {
         

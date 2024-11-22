@@ -1,3 +1,7 @@
+using MartianRobots.Models;
+
+namespace MartianRobots.Interfaces;
+
 public interface IRobot
 {
     Position CurrentPosition { get; }

@@ -1,4 +1,8 @@
-using NUnit.Framework;
+using MartianRobots.Enums;
+using MartianRobots.Models;
+using MartianRobots.Navigation;
+
+namespace MartianRobots.tests.Navigation;
 
 [TestFixture]
 public class RobotNavigatorTests

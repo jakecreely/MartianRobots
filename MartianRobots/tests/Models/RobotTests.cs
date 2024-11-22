@@ -1,3 +1,5 @@
+using MartianRobots.Enums;
+using MartianRobots.Models;
 using NUnit.Framework;
 
 namespace MartianRobots.tests.Models;

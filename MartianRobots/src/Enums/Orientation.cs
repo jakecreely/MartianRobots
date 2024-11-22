@@ -1,3 +1,5 @@
+namespace MartianRobots.Enums;
+
 public enum Orientation
 {
     North = 0,
